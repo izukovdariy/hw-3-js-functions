@@ -17,7 +17,7 @@ console.log(convert({ name: "Jeremy", age: 24, role: "Software Engineer" }));
 
 function toCamelCase(str) {
   var arrayString = str.split(/-+|_+/);
-  arrayString.forEach((word, index) => {
+  arrayString.forEach(function(word, index){
     if (word !== "" && word[0] === word[0].toLowerCase() && index !== 0) {
       arrayString[index] = word[0].toUpperCase() + word.slice(1);
     }
@@ -30,7 +30,7 @@ console.log(toCamelCase("The_Stealth_Warrior"));
 
 function stringReverse(str) {
   var arrayString = str.split(" ");
-  arrayString.forEach((word, index) => {
+  arrayString.forEach(function(word, index){
     word = word.split("").reverse().join("");
     arrayString[index] = word;
   });
@@ -80,8 +80,8 @@ function smallest() {
 console.log(smallest(2, 0.1, -5, 100, 3));
 
 function transform(array) {
-  return array.map((element) => {
-    return () => {
+  return array.map(function(element){
+    return function() {
       return element;
     };
   });
@@ -103,7 +103,7 @@ function sum() {
 console.log(sum(1, 3, 5, 7));
 
 function countDown(number) {
-  var timerId = setInterval(() => {
+  var timerId = setInterval(function() {
     if (number < 0) clearInterval(timerId);
     else console.log(number--);
   }, 1000);
